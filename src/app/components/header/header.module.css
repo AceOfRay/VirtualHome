@@ -1,0 +1,13 @@
+
+.headerContainer {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.title {
+    font-weight: 200;
+    font-size: x-large;
+
+}
