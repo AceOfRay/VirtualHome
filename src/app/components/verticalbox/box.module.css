@@ -1,0 +1,11 @@
+
+#vBoxContainer {
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;  
+
+}
+#vBoxContainer > * {
+    padding:2vh 2vh;
+}
