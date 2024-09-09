@@ -15,7 +15,7 @@ export default function Home() {
         signInWithPopup(auth, provider)
             .then((result) => {
                 if (result.user) {
-                    router.push("/spaces")
+                    router.push("/homes")
                 }
             }).catch((error) => {
                 console.error(error)
@@ -27,7 +27,6 @@ export default function Home() {
         if (user) {
           router.push("/homes")
         }
-
       });
 
       return () => unsubscribe();

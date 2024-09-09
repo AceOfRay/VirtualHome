@@ -12,6 +12,7 @@ export default function PageContent<T extends React.ReactNode>({ children, class
     if (user === null) {
         router.push("/")
     } else {
+        
         return (
             <main>
                 <Header></Header>

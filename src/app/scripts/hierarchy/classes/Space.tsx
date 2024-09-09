@@ -1,6 +1,6 @@
 import Maintainable from "../interfaces/Maintainable";
 
-class Space {
+export default class Space {
     maintainables : Maintainable[];
     id : string;
 
