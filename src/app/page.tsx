@@ -24,7 +24,7 @@ export default function Home() {
 
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if (user) {
+        if (user) {          
           router.push("/homes")
         }
       });

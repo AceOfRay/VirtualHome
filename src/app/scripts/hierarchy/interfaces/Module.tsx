@@ -1,5 +1,6 @@
 export default abstract class Module {
   moduleType: string;
+  moduleId: string;
   parentModuleType: string | null;
   parentModuleId: string | null;
   dateCreated: Date;
@@ -8,6 +9,7 @@ export default abstract class Module {
 
   constructor(
     moduleType: string,
+    moduleId: string,
     parentModuleType: string | null,
     parentModuleId: string | null,
     dateCreated: Date,
@@ -15,6 +17,7 @@ export default abstract class Module {
     deleted: boolean
   ) {
     this.moduleType = moduleType;
+    this.moduleId = moduleId;
     this.parentModuleType = parentModuleType;
     this.parentModuleId = parentModuleId;
     this.dateCreated = dateCreated;
@@ -24,6 +27,7 @@ export default abstract class Module {
 
   serializeFormat(): {
     moduleType: string;
+    moduleId: string;
     parentModuleType: string | null;
     parentModuleId: string | null;
     dateCreated: Date;
@@ -32,6 +36,7 @@ export default abstract class Module {
   } {
       return {
         moduleType: "string",
+        moduleId: "string",
         parentModuleType: null,
         parentModuleId: null,
         dateCreated: this.dateCreated,
@@ -39,4 +44,6 @@ export default abstract class Module {
         deleted: false,
       }
   }
+
+  abstract getComponentData() : [];
 }
