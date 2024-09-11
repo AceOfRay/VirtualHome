@@ -22,7 +22,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-setPersistence(auth, browserLocalPersistence)
+setPersistence(auth, browserLocalPersistence);
 const analytics = getAnalytics(app);
 const firestore = getFirestore(app);
 

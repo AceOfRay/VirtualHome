@@ -10,6 +10,15 @@
     max-height: 80vh;
 }
 
-#floatingbox > * {
-    margin:2vh;
+#floatingbox::-webkit-scrollbar {
+    width: 3px;
+  }
+
+#floatingbox::-webkit-scrollbar-thumb {
+    background-color:white;
+}
+
+#floatingbox::-webkit-scrollbar-track {
+    width:5px;
+    background-color: transparent;
 }

@@ -8,7 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script type="module" src="./scripts/hierarchy/classes/UserModuleHandler"></script>
+        <script src="./scripts/hierarchy/classes/UserModuleHandler"></script>
       </head>
       <body className="layout">
         {children}

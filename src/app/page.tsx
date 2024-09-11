@@ -4,6 +4,7 @@ import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebas
 import { useRouter } from "next/navigation";
 import { auth } from "./scripts/firebase/firebase"
 import { useEffect } from "react";
+import handler from "./scripts/hierarchy/classes/UserModuleHandler";
 
 
 export default function Home() {
@@ -13,7 +14,7 @@ export default function Home() {
     const handleSignIn = (e : React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         signInWithPopup(auth, provider)
-            .then((result) => {
+            .then(async (result) => {
                 if (result.user) {
                     router.push("/homes")
                 }
@@ -23,7 +24,7 @@ export default function Home() {
     };
 
     useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (user) => {
+      const unsubscribe = onAuthStateChanged(auth, async (user) => {
         if (user) {          
           router.push("/homes")
         }

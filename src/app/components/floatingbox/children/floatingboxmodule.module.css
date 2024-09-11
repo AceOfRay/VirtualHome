@@ -1,0 +1,35 @@
+
+
+.componentContainer {
+    width:100%;
+    align-items: start;
+    background-color: rgb(15, 15, 15);
+    border: 1px solid white;
+    margin-top:1vh;
+    transition:transform 0.2s ease-in-out;
+}
+
+.componentContainer:hover {
+    transform:translateY(-5px);
+    cursor:pointer;
+}
+
+.subcontent {
+    display: flex;
+    width:100%;
+
+}
+
+.subcontent > * {
+    margin:0;
+    margin-right:3vh;
+    padding: 1vh;
+}
+
+.title {
+    margin:0;
+    width:fit-content;
+    max-width: 80%;
+    font-weight:200;
+    padding:1vh;
+}

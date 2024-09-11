@@ -16,7 +16,8 @@ export default function Header() {
             </HorizontalBox>
             <HorizontalBox className={styles.headerLinks}>
                 <Link className={styles.navLink} href={"/homes"}>Homes</Link>
-                <Link className={styles.navLink} href={"/spaces"}>Spaces</Link>                
+                <Link className={styles.navLink} href={"/spaces"}>Spaces</Link>      
+                <Link className={styles.navLink} href={"/maintainables"}>Maintainables</Link>           
                 <Link className={styles.navLink} href={"/tasks"}>Tasks</Link>
                 <Link className={styles.navLink} href={"/notes"}>Notes</Link>
                 <Link className={styles.navLink} href={"/data"}>Data</Link>

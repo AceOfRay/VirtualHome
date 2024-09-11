@@ -1,25 +1,55 @@
-import Maintainable from "../interfaces/Maintainable";
+import { QuerySnapshot } from "firebase/firestore";
+import Maintainable from "./Maintainable";
 import Module from "../interfaces/Module";
-import UserModules from "./UserModules";
+import HomeComponent from "@/app/components/floatingbox/children/home";
+import Task from "./Task";
+import Note from "./Note";
+import Space from "./Space";
+import ModuleMetaData from "../../datastructures/ModuleMetaData";
+import ModulesMap from "../../datastructures/ModuleMap";
 
 export default class Home extends Module {
     maintainables: Maintainable[];
+    spaces: Space[];
+    notes: Note[];
+    tasks: Task[];
     
     constructor(
-        maintainables: Maintainable[],
-        moduleType: string,
-        moduleId: string,
-        parentModuleType: string | null,
-        parentModuleId: string | null,
-        dateCreated: Date,
-        dateDeleted: Date | null,
-        deleted: boolean
+        metadata: ModuleMetaData,
     ) {
-        super(moduleType, moduleId, parentModuleType, parentModuleId, dateCreated, dateDeleted, deleted)
-        this.maintainables = maintainables;
+        super(metadata)
+        this.maintainables = [];
+        this.spaces = [];
+        this.notes = [];
+        this.tasks = [];
+    }
+    
+    attachModules(list: Module[][]): void {
+        list[ModulesMap.spaceIndex].forEach((space) => {
+            this.spaces.push(space as Space)
+        });
+        list[ModulesMap.maintainableIndex].forEach((maintainable) => {
+            this.maintainables.push(maintainable as Maintainable)
+        });
+        list[ModulesMap.taskIndex].forEach((task) => {
+            this.tasks.push(task as Task)
+        });
+        list[ModulesMap.noteIndex].forEach((note) => {
+            this.notes.push(note as Note)
+        })
+    }
+    
+    addModule(module: Module) {
     }
 
-    getComponentData(): [] {
-        
+    static asReactComponents(homes: Home[]): React.JSX.Element[] {
+        return homes.map((home) => {
+            return <HomeComponent home={home}/>
+        })
     }
+
+    asReactComponent(): React.JSX.Element {
+        return <HomeComponent home={this}/>
+    }
+
 }
