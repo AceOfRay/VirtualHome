@@ -4,13 +4,13 @@ import Task from "./Task";
 import Space from "./Space";
 import Note from "./Note";
 import Maintainable from "./Maintainable";
-import ModulesMap from "../../datastructures/ModuleMap";
+import ModuleMap from "../../datastructures/ModuleMap";
 import ModuleMetaData from "../../datastructures/ModuleMetaData";
-import Module from "../interfaces/Module";
+import Module from "../abstractclasses/Module";
 
 export default class UserModules {
     snapshots: QuerySnapshot[];
-    modulesStructure: ModulesMap;
+    modulesStructure: ModuleMap;
     modules: Module[][];
 
     constructor(snapshots: QuerySnapshot[]) {
@@ -25,8 +25,8 @@ export default class UserModules {
     static taskIndex = 3;
     static noteIndex = 4;
 
-    private structureSnapshots(): ModulesMap {
-        const map = new ModulesMap()
+    private structureSnapshots(): ModuleMap {
+        const map = new ModuleMap()
 
         this.snapshots.forEach((snapshot: QuerySnapshot) => {
             snapshot.forEach((doc) => {

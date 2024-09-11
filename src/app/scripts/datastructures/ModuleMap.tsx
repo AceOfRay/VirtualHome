@@ -1,5 +1,4 @@
-import Module from "../hierarchy/interfaces/Module";
-import ModuleMetaData from "./ModuleMetaData";
+import Module from "../hierarchy/abstractclasses/Module";
 
 export default class ModuleMap {
     map: Map<Module, Module[][]>;

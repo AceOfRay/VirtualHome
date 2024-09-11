@@ -1,6 +1,6 @@
 import ModuleMetaData from "../../datastructures/ModuleMetaData";
 import Maintainable from "./Maintainable";
-import Module from "../interfaces/Module";
+import Module from "../abstractclasses/Module";
 import Note from "./Note";
 import Task from "./Task";
 import ModuleMap from "../../datastructures/ModuleMap";

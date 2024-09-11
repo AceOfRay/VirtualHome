@@ -1,5 +1,5 @@
 import ModuleMetaData from "../../datastructures/ModuleMetaData";
-import Module from "../interfaces/Module";
+import Module from "../abstractclasses/Module";
 import Note from "./Note";
 import Task from "./Task";
 import ModulesMap from "../../datastructures/ModuleMap";

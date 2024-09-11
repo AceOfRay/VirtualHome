@@ -1,5 +1,4 @@
 import ModuleMetaData from "../../datastructures/ModuleMetaData";
-import Home from "../classes/Home";
 
 export default abstract class Module {
   metadata: ModuleMetaData;

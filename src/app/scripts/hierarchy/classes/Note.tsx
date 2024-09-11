@@ -1,6 +1,6 @@
 import NoteComponent from "@/app/components/floatingbox/children/notes";
 import ModuleMetaData from "../../datastructures/ModuleMetaData";
-import Module from "../interfaces/Module";
+import Module from "../abstractclasses/Module";
 
 export default class Note extends Module {
     

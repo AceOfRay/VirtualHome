@@ -1,7 +1,6 @@
 import { auth } from "../../firebase/firebase";
-import Module from "../interfaces/Module";
 import UserModules from "./UserModules";
-import { collection, query, getDocs, where, QuerySnapshot } from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore";
 import { firestore } from "../../firebase/firebase";
 import { User } from "firebase/auth";
 import Home from "./Home";
@@ -36,11 +35,7 @@ class UserModuleHandler {
         }
     }
 
-    addModule(m: Module): void {
-
-    }
-
-    getModulesAsComponents(type: string, limit:number=0): React.JSX.Element[] | React.JSX.Element | undefined{
+    getModulesAsComponents(type: string, limit:number=0): React.JSX.Element[] | React.JSX.Element | undefined {
         if (this.userModules) {
             switch (type) {
                 case "homes":
@@ -63,31 +58,10 @@ class UserModuleHandler {
                 } else {
                     this.getModulesAsComponents(type, limit + 1)
                 }
-            }, 1000)
-            
+            }, 1000)            
         }
     }
-
 }
-
-// const handler : UserModuleHandler = new UserModuleHandler()
-// userData : UserModules = handler.modules;
-
-/* 
-Scenario: adding a new task to a Space
-client code:
-    handler.addModule(module)
-
-Scenario: creating a recurring task
-    handler.addModule(module)
-
-Scenario: adding a new space to a home
-    handler.addModule(module)
-
-Scenario: removing a task from a home
-    handler.removeModule(module) // sets the deleted field to true for the handler and all modules w/ that id as a parent. (probably recursive) 
-*/
-
 const handler = new UserModuleHandler();
 handler.init();
 export default handler;

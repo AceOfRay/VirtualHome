@@ -1,6 +1,5 @@
-import { QuerySnapshot } from "firebase/firestore";
 import Maintainable from "./Maintainable";
-import Module from "../interfaces/Module";
+import Module from "../abstractclasses/Module";
 import HomeComponent from "@/app/components/floatingbox/children/home";
 import Task from "./Task";
 import Note from "./Note";
@@ -40,6 +39,7 @@ export default class Home extends Module {
     }
     
     addModule(module: Module) {
+
     }
 
     static asReactComponents(homes: Home[]): React.JSX.Element[] {
