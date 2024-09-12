@@ -9,4 +9,5 @@ export default abstract class Module {
   abstract attachModules(list: Module[][]): void;
   abstract addModule(module: Module): void;
   abstract asReactComponent(): React.JSX.Element;
+  abstract objectify(): {};
 }

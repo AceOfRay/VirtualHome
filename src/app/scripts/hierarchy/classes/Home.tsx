@@ -1,6 +1,6 @@
 import Maintainable from "./Maintainable";
 import Module from "../abstractclasses/Module";
-import HomeComponent from "@/app/components/floatingbox/children/home";
+import HomeComponent from "@/app/components/boxes/floatingbox/children/home";
 import Task from "./Task";
 import Note from "./Note";
 import Space from "./Space";
@@ -12,15 +12,25 @@ export default class Home extends Module {
     spaces: Space[];
     notes: Note[];
     tasks: Task[];
+
+    name: string;
+    address: string;
+    people: string;
     
     constructor(
         metadata: ModuleMetaData,
+        name: string,
+        address: string,
+        people: string,
     ) {
         super(metadata)
         this.maintainables = [];
         this.spaces = [];
         this.notes = [];
         this.tasks = [];
+        this.name = name;
+        this.address = address;
+        this.people = people;
     }
     
     attachModules(list: Module[][]): void {
@@ -52,4 +62,19 @@ export default class Home extends Module {
         return <HomeComponent home={this}/>
     }
 
+    objectify() : {} {
+        return {
+            moduleType : this.metadata.moduleType,
+            moduleId : this.metadata.moduleId,
+            attachedModuleId : this.metadata.attachedModuleId,
+            attachedModuleType : this.metadata.attachedModuleType,
+            dateCreated : this.metadata.dateCreated,
+            dateDeleted : this.metadata.dateDeleted,
+            deleted: this.metadata.deleted, 
+            name: this.name,
+            address: this.address,
+            people: this.people,
+                
+        }
+    }
 }

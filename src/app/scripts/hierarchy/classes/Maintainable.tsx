@@ -3,7 +3,7 @@ import Module from "../abstractclasses/Module";
 import Note from "./Note";
 import Task from "./Task";
 import ModulesMap from "../../datastructures/ModuleMap";
-import MaintainableComponent from "@/app/components/floatingbox/children/maintainables";
+import MaintainableComponent from "@/app/components/boxes/floatingbox/children/maintainables";
 
 export default class Maintainable extends Module {
     notes: Note[];

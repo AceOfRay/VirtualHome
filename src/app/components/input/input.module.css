@@ -1,0 +1,58 @@
+
+.container {
+    width:fit-content;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.inputBox {
+    border:none;
+    border-bottom:1px solid white;
+    transition: transform ease-in-out .1s;
+    background-color: transparent;
+    color:white;
+    text-align: center;
+    margin-left:2vh;
+    font-size:large;
+    font-weight:100;
+}
+
+.inputBox:focus, .inputBox:hover {
+    transform:scaleX(1.1);
+}
+
+.label {
+    font-size:large;
+}
+
+.dropdown {
+    width:10vh;
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left:2vh;
+    padding:.5vh;
+    border-radius:3px;
+}
+
+.option {
+    background-color: black;
+}
+
+.option:hover {
+    background-color: rgb(15, 15, 15);
+    cursor: pointer;
+}
+
+.button {
+    background-color: black;
+    border:1px solid white;
+    transition: transform ease-in-out .2s;
+    padding:1vh;
+    font-size: large;
+}
+
+.button:hover {
+    background-color: rgb(15, 15, 15);
+    transform: scale(1.04);
+    cursor:pointer;
+}

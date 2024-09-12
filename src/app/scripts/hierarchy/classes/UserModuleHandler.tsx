@@ -1,7 +1,7 @@
-import { auth } from "../../firebase/firebase";
+'use client'
+import { auth, firestore } from "../../firebase/firebase";
 import UserModules from "./UserModules";
 import { collection, query, getDocs, setDoc, doc } from "firebase/firestore";
-import { firestore } from "../../firebase/firebase";
 import { User } from "firebase/auth";
 import Home from "./Home";
 import Space from "./Space";
@@ -65,17 +65,25 @@ export class UserModuleHandler {
     }
     async addModuleToFirestore(module : Module) {
         const path = this.createPath(module);
-        await setDoc(doc(firestore, path[0], path[1], path[2]), module.metadata) 
+        await setDoc(doc(firestore, path[0], path[1], path[2], path[3]), module.objectify()) 
     }
 
     createPath(module : Module) : string[] {
         let collection : string = this.getCollection(module);
-        
-        if (this.user) {
-            return ["Users", this.user.uid, collection]
-        } else {
-            throw new Error("Error when creating path: user is undefined")
+        let count = 0;
+        while (this.user === null) {
+            if (count > 100000) {
+                throw new Error("Error when creating path: user is undefined")
+            }
+            count++;
         }
+        if (this.user) {
+            return ["Users", this.user.uid, collection, module.metadata.moduleId]
+        } else {
+            throw new Error("unreachable")
+        }
+        
+        
     }
 
     getCollection(module : Module) : string {
@@ -94,6 +102,17 @@ export class UserModuleHandler {
                 throw new Error("Invalid module type")
         }
     }
+
+    static generateId() {
+        const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let id = '';
+      
+        for (let i = 0; i < 15; i++) {
+          id += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+      
+        return id;
+      }
 }
 const Handler = new UserModuleHandler();
 Handler.init();

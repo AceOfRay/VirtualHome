@@ -1,7 +1,7 @@
 'use client'
 import styles from "./pagecontent.module.css";
 import AddModules from "../addmodules/modules";
-import FloatingBox from "../floatingbox/box";
+import FloatingBox from "../boxes/floatingbox/box";
 import Header from "../header/header";
 import { useRouter } from "next/navigation";
 import { auth } from "@/app/scripts/firebase/firebase";

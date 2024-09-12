@@ -3,7 +3,7 @@ import Module from "../abstractclasses/Module";
 import Note from "./Note";
 import ModuleMap from "../../datastructures/ModuleMap";
 import Home from "./Home";
-import TasksComponent from "@/app/components/floatingbox/children/tasks";
+import TasksComponent from "@/app/components/boxes/floatingbox/children/tasks";
 
 export default class Task extends Module {
     notes: Note[];

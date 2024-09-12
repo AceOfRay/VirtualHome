@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import accountIcon from "../../assets/icons/account-icon.png"
 import favicon from "../../favicon.ico";
-import HorizontalBox from "../horizontalbox/box";
+import HorizontalBox from "../boxes/horizontalbox/box";
 
 import styles from "./header.module.css"
 

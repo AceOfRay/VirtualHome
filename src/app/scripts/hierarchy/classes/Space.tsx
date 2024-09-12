@@ -4,7 +4,7 @@ import Module from "../abstractclasses/Module";
 import Note from "./Note";
 import Task from "./Task";
 import ModuleMap from "../../datastructures/ModuleMap";
-import SpaceComponent from "@/app/components/floatingbox/children/spaces";
+import SpaceComponent from "@/app/components/boxes/floatingbox/children/spaces";
 
 export default class Space extends Module {
     maintainables : Maintainable[];

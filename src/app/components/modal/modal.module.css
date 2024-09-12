@@ -1,3 +1,15 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+}
+
 .modalContent {
     width: 60vw;
     height: 60vh;
@@ -11,16 +23,20 @@
     opacity: 1;
 }
 
-.modalContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .5);
+.closeButton {
+    padding:1vh;
+    background-color: black;
+    color:white;
+    font-size:x-large;
+    border: none;
+    cursor:pointer;
+    margin:1vh;
+}
+
+.buttonContainer {
+    display:flex;
+    justify-content: flex-end;
+    width:100%;
 }
 
 @keyframes animatetop {
@@ -33,4 +49,17 @@
         top: 0;
         opacity: 1
     }
+}
+
+.text {
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+    background-color: transparent;
+    border: none;
+    font-size:medium;
+}
+
+.text:hover {
+    transform:scale(1.1);
+    cursor:pointer;
 }

@@ -1,4 +1,4 @@
-import NoteComponent from "@/app/components/floatingbox/children/notes";
+import NoteComponent from "@/app/components/boxes/floatingbox/children/notes";
 import ModuleMetaData from "../../datastructures/ModuleMetaData";
 import Module from "../abstractclasses/Module";
 

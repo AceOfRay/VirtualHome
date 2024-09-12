@@ -1,0 +1,11 @@
+
+.fieldContainer {
+    width:fit-content;
+    display: flex;
+    align-items:end;
+    flex-direction: column;
+}
+
+.fieldContainer > * {
+    margin:1vh 0;
+}

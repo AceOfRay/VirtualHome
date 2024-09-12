@@ -30,10 +30,11 @@ export default class UserModules {
 
         this.snapshots.forEach((snapshot: QuerySnapshot) => {
             snapshot.forEach((doc) => {
-                const metadata = new ModuleMetaData(doc.data())
+                const data = doc.data()
+                const metadata = new ModuleMetaData(data)
                 switch (metadata.moduleType) {
                     case "home":
-                        map.put(new Home(metadata));
+                        map.put(new Home(metadata, data.home, data.address, data.people) );
                     case "space":
                         map.put(new Space(metadata));
                     case "maintainable":
