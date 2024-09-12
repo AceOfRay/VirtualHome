@@ -1,0 +1,36 @@
+.modalContent {
+    width: 60vw;
+    height: 60vh;
+    border: 1px solid white;
+    box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.5);
+    z-index: 20;
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    background-color: black;
+    opacity: 1;
+}
+
+.modalContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}

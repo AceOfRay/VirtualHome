@@ -1,17 +1,17 @@
+'use client'
 import { useState } from "react"
-import styles from "./addmodules.module.css"
+import Modal from "../modal/modal";
 
-export default function AddModuleModal<T extends React.ReactNode>({className, children} : {className : string, children : T}) {
+export default function AddModuleModal<T extends React.ReactNode>({ className, children }: { className: string, children: T }) {
     const [newModuleType, setNewModuleType] = useState("");
     const [attachedToType, setAttachedToType] = useState("");
     const [shown, setShown] = useState(false);
-    return shown ? (
-        <div className={styles.expandedModal}>
-            
-        </div>
-    ) : (
-        <div className={styles.reducedModal} onClick={() => {setShown(true)}}>
+
+    return (
+        <div onClick={() => { setShown(true) }}>
             {children}
+            {shown ? (<Modal setShown={setShown}>some text</Modal>) : (<div></div>)}
         </div>
-    )
+    );
+    
 }
