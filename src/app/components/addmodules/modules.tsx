@@ -1,15 +1,17 @@
 import VerticalBox from "../verticalbox/box"
 import Link from "next/link"
 import styles from "./addmodules.module.css"
+import AddModuleModal from "./addModal"
 export default function AddModules() {
     return (
         <VerticalBox className={styles.addContainer}>
             <h4 className={styles.containerTitle}>Add New Modules</h4>
-            <Link className={styles.addLink} href={"/add"}>Home</Link>
-            <Link className={styles.addLink} href={"/add"}>Space</Link>
-            <Link className={styles.addLink} href={"/add"}>Maintainable</Link>
-            <Link className={styles.addLink} href={"/add"}>Task</Link>
-            <Link className={styles.addLink} href={"/add"}>Note</Link>
+            <AddModuleModal className={styles.addLink}>Home</AddModuleModal>
+            <AddModuleModal className={styles.addLink}>Spaces</AddModuleModal>
+            <AddModuleModal className={styles.addLink}>Maintainables</AddModuleModal>
+            <AddModuleModal className={styles.addLink}>Tasks</AddModuleModal>
+            <AddModuleModal className={styles.addLink}>Notes</AddModuleModal>
+            
         </VerticalBox>
     )
 }

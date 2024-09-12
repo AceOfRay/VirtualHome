@@ -9,6 +9,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script src="./scripts/hierarchy/classes/UserModuleHandler"></script>
+        <script src="./scripts/hierarchy/datastructures/tests/ModulesMap"></script>
       </head>
       <body className="layout">
         {children}

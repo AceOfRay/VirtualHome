@@ -1,12 +1,12 @@
-import { DocumentData } from "firebase/firestore";
+import { DocumentData, Timestamp } from "firebase/firestore";
 
 export default class ModuleMetaData {
   moduleType: string;
   moduleId: string;
   attachedModuleId: string | null;
   attachedModuleType: string | null;
-  dateCreated: Date;
-  dateDeleted: Date | null;
+  dateCreated: Timestamp;
+  dateDeleted: Timestamp | null;
   deleted: boolean;
 
   constructor(

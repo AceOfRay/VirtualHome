@@ -1,6 +1,6 @@
 import { auth } from "../../firebase/firebase";
 import UserModules from "./UserModules";
-import { collection, query, getDocs } from "firebase/firestore";
+import { collection, query, getDocs, setDoc, doc } from "firebase/firestore";
 import { firestore } from "../../firebase/firebase";
 import { User } from "firebase/auth";
 import Home from "./Home";
@@ -9,15 +9,17 @@ import Maintainable from "./Maintainable";
 import Task from "./Task";
 import Note from "./Note";
 import ErrorComponent from "@/app/components/error/error";
+import Module from "../abstractclasses/Module";
 
 
-class UserModuleHandler {
+export class UserModuleHandler {
     user: User | null;
     userModules: UserModules | undefined;
 
     constructor () {
         this.user = auth.currentUser;
     }
+
 
     async init() {
         this.userModules = await this.loadData();
@@ -61,7 +63,38 @@ class UserModuleHandler {
             }, 1000)            
         }
     }
+    async addModuleToFirestore(module : Module) {
+        const path = this.createPath(module);
+        await setDoc(doc(firestore, path[0], path[1], path[2]), module.metadata) 
+    }
+
+    createPath(module : Module) : string[] {
+        let collection : string = this.getCollection(module);
+        
+        if (this.user) {
+            return ["Users", this.user.uid, collection]
+        } else {
+            throw new Error("Error when creating path: user is undefined")
+        }
+    }
+
+    getCollection(module : Module) : string {
+        switch (module.metadata.moduleType) {
+            case "home":
+                return "Homes";
+            case "space":
+                return "Spaces";
+            case "maintainable":
+                return "Maintainables";
+            case "task":
+                return "Tasks";
+            case "note":
+                return "Notes"
+            default:
+                throw new Error("Invalid module type")
+        }
+    }
 }
-const handler = new UserModuleHandler();
-handler.init();
-export default handler;
+const Handler = new UserModuleHandler();
+Handler.init();
+export default Handler;
