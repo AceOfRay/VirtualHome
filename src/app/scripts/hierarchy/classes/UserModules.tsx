@@ -34,9 +34,9 @@ export default class UserModules {
                 const metadata = new ModuleMetaData(data)
                 switch (metadata.moduleType) {
                     case "home":
-                        map.put(new Home(metadata, data.home, data.address, data.people) );
+                        map.put(new Home(metadata, data.home, data.address, data.people));
                     case "space":
-                        map.put(new Space(metadata));
+                        map.put(new Space(metadata, data.name));
                     case "maintainable":
                         map.put(new Maintainable(metadata))
                     case "task":

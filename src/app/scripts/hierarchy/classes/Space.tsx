@@ -10,12 +10,14 @@ export default class Space extends Module {
     maintainables : Maintainable[];
     notes: Note[];
     tasks: Task[];
+    name : string;
     
-    constructor(metadata : ModuleMetaData) {
+    constructor(metadata : ModuleMetaData, name : string) {
         super(metadata);
         this.maintainables = [];
         this.notes = [];
         this.tasks = [];
+        this.name = name;
     }
     
     attachModules(list: Module[][]): void {
@@ -36,14 +38,17 @@ export default class Space extends Module {
     queryMaintainables() : Maintainable[] {
         return [];
     }
-
+    
     static asReactComponents(spaces: Space[]): React.JSX.Element[] {
         return spaces.map((space) => {
             return <SpaceComponent space={space}/>
         })
     }
-
+    
     asReactComponent(): React.JSX.Element {
         return <SpaceComponent space={this}/>;
+    }
+    objectify(): {} {
+        throw new Error("Method not implemented.");
     }
 }

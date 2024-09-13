@@ -6,9 +6,8 @@ import Button from "../input/button"
 import VerticalBox from "../boxes/verticalbox/box"
 import Home from "@/app/scripts/hierarchy/classes/Home"
 import ModuleMetaData from "@/app/scripts/datastructures/ModuleMetaData"
-import { UserModuleHandler } from "@/app/scripts/hierarchy/classes/UserModuleHandler"
+import Handler, { UserModuleHandler } from "@/app/scripts/hierarchy/classes/UserModuleHandler"
 import { Timestamp } from "firebase/firestore"
-import Handler from "@/app/scripts/hierarchy/classes/UserModuleHandler"
 
 export default function HomeInputForm() {
     const [name, setName] = useState("");
