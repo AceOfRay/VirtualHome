@@ -1,1 +1,1 @@
-An application that will help me do simple tasks in my home
+A full-stack application using Firebase and Next.js to address home related organization needs. The app effectively manages tasks, tracks inventory, and provides reminders for various activities. A robust type hierarchy was implemented to categorize and represent physical objects within the users virtual homes, including homes, spaces, maintainables, tasks, and notes.
